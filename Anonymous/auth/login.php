@@ -3,18 +3,6 @@
         <h1 class="font-nerko-one text-uppercase"><?= $setting['nama_website'] ?></h1>
 
         <?php
-        session_start();
-        if (!isset($_SESSION['login_attempts'])) {
-            $_SESSION['login_attempts']= 0;
-        }
-
-        function loginAttemp(){
-            $_SESSION['login_attempts']++;
-            if ($_SESSION['login_attempts']>5){
-
-            }
-        }
-
         $emailErr = '';
         $passwordErr = '';
         if (isset($_POST['submit'])) {
@@ -26,8 +14,7 @@
             if (!empty($_POST["email"]) && !empty($_POST["password"])) {
                 $email = htmlspecialchars(strip_tags($_POST['email']));
                 $password = $_POST['password'];}
-
-            loginAttemp();
+            
 
             $sql_count_user = "SELECT count(*) as total_count, password, email, id, name, role FROM users WHERE email = ?";
             $stmt = mysqli_prepare($koneksi, $sql_count_user);
