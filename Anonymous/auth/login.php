@@ -4,13 +4,13 @@
 
         <?php
         session_start();
-        if (!isset($_SESSION['login_attemps'])) {
-            $_SESSION['login_attemps']= 0;
+        if (!isset($_SESSION['login_attempts'])) {
+            $_SESSION['login_attempts']= 0;
         }
 
         function loginAttemp(){
-            $_SESSION['login_attemps']++;
-            if ($_SESSION['login_attemps']>5){
+            $_SESSION['login_attempts']++;
+            if ($_SESSION['login_attempts']>5){
 
             }
         }
