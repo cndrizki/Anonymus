@@ -1,0 +1,236 @@
+@font-face {
+    font-family: 'newRocker';
+    src: url('../font/NewRocker-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'nerkoOne';
+    src: url('../font/NerkoOne-Regular.otf');
+}
+
+@font-face {
+    font-family: 'neucha';
+    src: url('../font/neucha.otf');
+}
+
+.font-new-rocker {
+    font-family: 'newRocker' !important;
+}
+
+.font-nerko-one {
+    font-family: 'nerkoOne' !important;
+}
+
+.font-neucha {
+    font-family: 'neucha' !important;
+}
+
+.bg-primary {
+    background-color: #002448 !important;
+}
+
+.mr-1 {
+    margin-right: 0.25rem !important;
+}
+
+.mr-2 {
+    margin-right: 0.5rem !important;
+}
+
+.mr-3 {
+    margin-right: 1rem !important;
+}
+
+.mr-4 {
+    margin-right: 1.5rem !important;
+}
+
+.mr-5 {
+    margin-right: 3rem !important;
+}
+
+.ml-1 {
+    margin-left: 0.25rem !important;
+}
+
+.ml-2 {
+    margin-left: 0.5rem !important;
+}
+
+.ml-3 {
+    margin-left: 1rem !important;
+}
+
+.ml-4 {
+    margin-left: 1.5rem !important;
+}
+
+.ml-5 {
+    margin-left: 3rem !important;
+}
+
+.button-like {
+    background-color: unset !important;
+    border: unset !important;
+    line-height: unset !important;
+}
+
+.btn-custom {
+    text-transform: uppercase;
+    color: white;
+    background-image: linear-gradient(to right, #004155, #000D14);
+    width: 120px;
+    border-radius: 30px;
+}
+
+.btn-custom:hover {
+    color: white;
+    background-image: linear-gradient(to left, #004155, #000D14);
+}
+
+.text-left {
+    text-align: start !important;
+}
+
+.text-right {
+    text-align: end !important;
+}
+
+body {    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.home {
+    margin-top: 15%;
+}
+
+.home .container {
+    text-align: center;
+}
+
+.home h1 {
+    font-size: 80px;
+    color: white;
+}
+
+.home p {
+    font-size: 27px;
+    color: white;
+}
+
+.home .btn-custom {
+    font-size: 24px;
+    width: 150px;
+}
+
+.login-form {
+    width: 35%;
+    margin: 10% auto;
+    padding: 20px 30px 20px 30px;
+    text-align: center;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+}
+
+.login-form .forgot-password {
+    text-decoration: unset;
+    color: #002448 !important;
+}
+
+.login-form input {
+    border-radius: 20px;
+}
+
+.form-control {
+    font-family: 'nerkoOne';
+}
+
+.post .post-content .form-control {
+    font-family: 'newRocker';
+    border-radius: 20px;
+}
+
+.post {
+    margin-top: 30px;
+}
+
+.post .post-header {
+    display: flex;
+    justify-content: center;
+}
+
+.post .post-header .image {
+    width: 10%;
+}
+
+.post .post-header .image img {
+    width: 80%;
+}
+
+.post .post-header h1 {
+    margin-top: 2%;
+}
+
+.post .post-content {
+    margin-top: 20px;
+}
+
+.post .post-content .card {
+    text-align: center;
+    border-radius: 20px;
+}
+
+.btn-custome-white {
+    font-family: 'newRocker';
+    text-transform: uppercase;
+    color: black;
+    background-color: white;
+}
+
+.text-n-decor {
+    text-decoration: unset;
+}
+.f-s-20 {
+    font-size: 20px;
+}
+.f-s-30 {
+    font-size: 30px;
+}
+.f-s-40 {
+    font-size: 40px;
+}
+.f-s-50 {
+    font-size: 50px;
+}
+
+.notif {
+    margin-top: 30px;
+}
+
+.notif .notif-header {
+    display: flex;
+    justify-content: center;
+}
+
+.notif .notif-header .image {
+    width: 10%;
+}
+
+.notif .notif-header .image img {
+    width: 80%;
+}
+
+.notif .notif-header h1 {
+    margin-top: 2%;
+}
+
+.notif .notif-content {
+    margin-top: 20px;
+    height: 30px;
+}
+
+.notif .notif-content .card {
+    border-radius: 20px;
+}
