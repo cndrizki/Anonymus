@@ -3,17 +3,23 @@ $emailErr = '';
 $nohpErr = '';
 $passwordErr = '';
 $passwordConfirmErr = '';
+
 if (isset($_POST['submit'])) {
     if (empty($_POST["password"])) {
         $passwordErr = "Password is required";
+    } elseif (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/', $_POST["password"])) {
+        $passwordErr = "Password must contain at least one lowercase letter, one uppercase letter, one digit, and be at least 6 characters long.";
     }
 
     if (empty($_POST["email"])) {
         $emailErr = "Email is required";
     } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
         $emailErr = "Invalid email format";
-    } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z\s]+$/")))) {
-        $emailErr = "Invalid email format";
+    }
+
+    // Hapus validasi regex untuk nomor handphone
+    if (empty($_POST["no_hp"])) {
+        $nohpErr = "No HP is required";
     }
 
     if (empty($_POST["password_confirmation"])) {
@@ -22,16 +28,9 @@ if (isset($_POST['submit'])) {
         $passwordConfirmErr = 'Password confirm not match';
     }
 
-    if (empty($_POST["no_hp"])) {
-        $nohpErr = "No HP is required";
-    } elseif (!filter_var($_POST["no_hp"], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z\s]+$/")))) {
-        $nohpErr = "Invalid no hp format";
-    }
-
-    if (!empty($_POST["password"]) && !empty($_POST["email"]) && !empty($_POST["password_confirmation"]) && !empty($_POST["no_hp"])) {
+    if (empty($emailErr) && empty($nohpErr) && empty($passwordErr) && empty($passwordConfirmErr)) {
         $email = htmlspecialchars(strip_tags($_POST['email']));
         $no_hp = htmlspecialchars(strip_tags($_POST['no_hp']));
-        ;
         $role = 'pengguna';
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $created_at = date('Y-m-d H:i:s');
@@ -76,7 +75,6 @@ if (isset($_POST['submit'])) {
                     </script>";
             }
         }
-
     }
 }
 ?>
@@ -95,9 +93,10 @@ if (isset($_POST['submit'])) {
                     <?= $emailErr ?>
                 </i>
             </div>
+            <!-- Menggunakan tipe data "tel" untuk nomor handphone -->
             <div class="form-group text-left mb-4">
                 <label for="" class="font-nerko-one">No Handphone</label>
-                <input type="number" name="no_hp" class="form-control" placeholder="No Handphone">
+                <input type="tel" name="no_hp" class="form-control" placeholder="No Handphone">
                 <i class="text-danger font-nerko-one">
                     <?= $nohpErr ?>
                 </i>
