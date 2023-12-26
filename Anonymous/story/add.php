@@ -1,5 +1,13 @@
 <?php
     $storyErr = '';
+
+    if ($_SESSION['user_id'] <> true) {
+        echo "<script>
+            alert('Anda harus login terlebih dahulu.');
+            window.location.href='./index.php?p=login';
+        </script>";
+    }
+
     if (isset($_POST['submit'])) {
         if (empty($_POST["story"])) {
             $storyErr = "Story is required";
