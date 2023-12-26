@@ -15,6 +15,13 @@
                 $story_count = mysqli_fetch_assoc($result_story_count);
                 $jum_story = $story_count['total_story'];
 
+                if ($_SESSION['user_id'] <> true) {
+                    echo "<script>
+                        alert('Anda harus login terlebih dahulu.');
+                        window.location.href='./index.php?p=login';
+                    </script>";
+                }
+
                 if ($jum_story > 0) {
                     $sql_story = "SELECT * FROM stories WHERE user_id='$user_id'";
                     $result_story = mysqli_query($koneksi, $sql_story);
