@@ -107,45 +107,12 @@
             </script>";
         }
 
-        if ($uri_segments[3] == 'index.php' && isset($uri_segments[4]) <> '') {
+        if (isset($uri_segments[3]) && $uri_segments[3] == 'index.php' && isset($uri_segments[4]) <> '') {
             echo "<script>
                 alert('Halaman tidak ada.');
                 window.location.href='../index.php';
             </script>";
         }
-    ?>
-
-    
-    <script>
-        // @if(Session::has('success'))
-        // toastr.options =
-        // {
-        //     "closeButton" : true,
-        //     "progressBar" : true,
-        // }
-        //         toastr.success("{{ session('success') }}");
-        // @endif
-        
-        // @if(Session::has('errors'))
-        // toastr.options =
-        //     {
-        //         "closeButton" : true,
-        //         "progressBar" : true
-        //     }
-        //     @foreach ($errors->all() as $errors)
-        //         toastr.error("{{ $errors }}");
-        //     @endforeach
-        // @endif
-        
-        // @if(Session::has('warning'))
-        //     toastr.options =
-        //         {
-        //             "closeButton" : true,
-        //             "progressBar" : true
-        //         }
-        //     toastr.warning("{{ session('warning') }}");
-        // @endif
-    </script>
     
   </body>
 </html>
