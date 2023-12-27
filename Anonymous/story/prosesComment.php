@@ -2,6 +2,12 @@
     include '../config/koneksi.php';
 
     session_start();
+    if ($_SESSION['user_id'] <> true) {
+        echo "<script>
+            alert('Anda harus login terlebih dahulu.');
+            window.location.href='./index.php?p=login';
+        </script>";
+    }
 
     switch ($_GET['action']) {
         case 'add':
