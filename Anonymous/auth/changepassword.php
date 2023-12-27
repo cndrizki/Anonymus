@@ -1,5 +1,6 @@
 <?php
-    $email = $_GET['email'];
+
+    $email = isset($_SESSION['fp_email']) ? $_SESSION['fp_email'] : '';
 
     $passwordErr = '';
     $passwordConfirmErr = '';
@@ -36,8 +37,9 @@
         <form action="" method="post">
             <div class="form-group text-left mb-4">
                 <label for="" class="font-nerko-one">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Email" value="<?= $email ?>" readonly>
+                <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo isset($_SESSION['fp_email']) ? htmlspecialchars($_SESSION['fp_email']) : ''; ?>" readonly>
             </div>
+            <input type="hidden" name="email" value="<?php echo isset($_SESSION['fp_email']) ? htmlspecialchars($_SESSION['fp_email']) : ''; ?>">
             <div class="form-group text-left mb-4">
                 <label for="" class="font-nerko-one">Password</label>
                 <input type="password" name="password" class="form-control" placeholder="Password">
