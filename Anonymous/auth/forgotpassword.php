@@ -16,9 +16,11 @@
                 $user = mysqli_fetch_assoc($result);
 
                 if ($user['total_user'] > 0) {
+                    session_start();
+                    $_SESSION['fp_email'] = $email;
                     echo "<script>
                         alert('Email ditemukan.');
-                        window.location.href='index.php?p=changepassword&email=$email';
+                        window.location.href='index.php?p=changepassword';
                     </script>";
                 } else {
                     echo "<script>
