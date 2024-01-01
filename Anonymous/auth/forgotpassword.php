@@ -15,13 +15,9 @@
             if ($result) {
                 $user = mysqli_fetch_assoc($result);
 
-                if ($user['total_user'] > 0) {
-                    session_start();
+              if ($user['total_user'] > 0) {
                     $_SESSION['fp_email'] = $email;
-                    echo "<script>
-                        alert('Email ditemukan.');
-                        window.location.href='index.php?p=changepassword';
-                    </script>";
+                    header("Location:/Anonymous-main/index.php?p=changepassword&email=$email");
                 } else {
                     echo "<script>
                         alert('Email tidak ditemukan.');
