@@ -1,6 +1,6 @@
 <?php
 
-    $email = isset($_SESSION['fp_email']) ? $_SESSION['fp_email'] : '';
+    $email = $_SESSION['fp_email']; 
 
     $passwordErr = '';
     $passwordConfirmErr = '';
