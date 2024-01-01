@@ -20,7 +20,12 @@ if (isset($_POST['submit'])) {
     // Hapus validasi regex untuk nomor handphone
     if (empty($_POST["no_hp"])) {
         $nohpErr = "No HP is required";
-    }
+    }  elseif (!ctype_digit($_POST["no_hp"])) {
+        $nohpErr = "No HP should only contain digits";
+    }  $nohp = $_POST["no_hp"];
+    if (strlen($nohp) < 10 || strlen($nohp) > 12) {
+        $nohpErr = "Invalid phone number length";
+    }
 
     if (empty($_POST["password_confirmation"])) {
         $passwordConfirmErr = "Password Confirm is required";
