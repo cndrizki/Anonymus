@@ -25,8 +25,9 @@ if (isset($_POST['submit'])) {
     }  $nohp = $_POST["no_hp"];
     if (strlen($nohp) < 10 || strlen($nohp) > 12) {
         $nohpErr = "Invalid phone number length";
-    }
+}
 
+    
     if (empty($_POST["password_confirmation"])) {
         $passwordConfirmErr = "Password Confirm is required";
     } elseif ($_POST["password_confirmation"] <> $_POST["password"]) {
