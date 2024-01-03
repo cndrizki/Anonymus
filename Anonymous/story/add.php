@@ -1,4 +1,5 @@
 <?php
+
     $storyErr = '';
 
     if ($_SESSION['user_id'] <> true) {
@@ -8,7 +9,20 @@
         </script>";
     }
 
+    function generateToken(){
+        $token = md5(uniqid(rand(), true)); 
+        return $token;
+      }
+
+    if(!isset($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = generateToken();
+    }
+    $csrf_token = $_SESSION['csrf_token'];
+
     if (isset($_POST['submit'])) {
+        if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] != $csrf_token){
+            die("CSRF token invalid!"); 
+          }
         if (empty($_POST["story"])) {
             $storyErr = "Story is required";
         } elseif (!filter_var($_POST["story"], FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))) {
@@ -29,6 +43,7 @@
                     window.location.href='index.php?p=mystory';
                 </script>";
             }
+            $_SESSION['csrf_token'] = generateToken();
         }
     }
 ?>
@@ -55,6 +70,7 @@
             </div>
             <div class="container mt-4">
                 <form action="" method="post">
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group row mb-4">
